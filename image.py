@@ -6,8 +6,8 @@ from importlib import reload
 
 
 class Image_Simulation(Simulation):
-    def __init__(self, verbose=True, save=True):
-        Simulation.__init__(self, verbose=verbose, save=save, delta_tilde=2, lr1=1, lr2=0.05)
+    def __init__(self, verbose=True, save=True, iter=10):
+        Simulation.__init__(self, verbose=verbose, save=save, delta_tilde=2, lr1=1, lr2=0.05, iter=iter)
         self.image = mpimg.imread('cat2.jpeg')
         self.image = self.rgb2gray(self.image)
         self.image = (self.image - np.mean(self.image)) / np.std(self.image)
@@ -41,7 +41,9 @@ class Image_Simulation(Simulation):
 
     def run(self):
         self.AMP()
+        self.lr=self.lr1
         self.gradient_descent()
+        self.lr = self.lr2
         self.prox_linear(exact=False, GD=True)
         self.TAF()
         return
