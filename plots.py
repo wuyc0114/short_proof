@@ -9,7 +9,7 @@ def plot_cor(n, d, methods=['optimal', 'Bayes AMP', 'Prox-linear', '1 step prox-
     fig, ax = plt.subplots()
     ax.set_xlabel(r'$t$', fontsize=16)
     ax.set_ylabel(
-        r'$\frac{|\langle \mathbf{\theta}, \mathbf{\theta}_t\rangle|}{\Vert\mathbf{\theta}\Vert_2 \Vert\mathbf{\theta}_t\Vert_2}$',
+        r'$\frac{|\langle \mathbf{\theta}, \mathbf{\theta}^t\rangle|}{\Vert\mathbf{\theta}\Vert_2 \Vert\mathbf{\theta}^t\Vert_2}$',
         fontsize=16)
     colors = [matplotlib.cm.viridis(25 * x) for x in range(3, 20)]
     x = np.arange(11)
@@ -55,7 +55,7 @@ def plot_cor(n, d, methods=['optimal', 'Bayes AMP', 'Prox-linear', '1 step prox-
             y = df.mean(axis=0)
             ax.plot(x, y, marker='v', label=method + r'$, \eta$='+f'0.5', markerfacecolor="None", ls='--', markeredgecolor=colors[5], color=colors[5], lw=2, markersize=7)
 
-    plt.legend(loc='upper left', fontsize=8)
+    #plt.legend(loc='upper left', fontsize=8)
     plt.tight_layout()
     plt.savefig(os.getcwd() + f'/figures/n={n}_d={d}.pdf')
 
