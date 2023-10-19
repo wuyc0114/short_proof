@@ -55,7 +55,7 @@ def plot_cor(n, d, methods=['optimal', 'Bayes AMP', 'Prox-linear', '1 step prox-
             y = df.mean(axis=0)
             ax.plot(x, y, marker='v', label=method + r'$, \eta$='+f'0.5', markerfacecolor="None", ls='--', markeredgecolor=colors[5], color=colors[5], lw=2, markersize=7)
 
-    #plt.legend(loc='upper left', fontsize=8)
+    plt.legend(loc='upper left', fontsize=8)
     plt.tight_layout()
     plt.savefig(os.getcwd() + f'/figures/n={n}_d={d}.pdf')
 

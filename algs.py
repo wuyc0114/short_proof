@@ -14,7 +14,9 @@ class Simulation:
         self.n = n
         self.d = d
         self.delta = n / d
+        # GD
         self.lr1 = lr1
+        # Prox linear
         self.lr2 = lr2
         self.num_exp = num_exp
         self.delta_tilde = delta_tilde
@@ -125,7 +127,7 @@ class Simulation:
             pd.DataFrame(self.result_AMP).to_csv(
                 dir + f'/AMP_n={self.n}_d={self.d}_lr={self.lr}_num_exp={self.num_exp}.csv', header=None, index=None)
             pd.DataFrame(self.result_GD).to_csv(
-                dir + f'/GD_n={self.n}_d={self.d}_lr={self.lr}_num_exp={self.num_exp}.csv', header=None, index=None)
+                dir + f'/GD_n={self.n}_d={self.d}_lr={self.lr1}_num_exp={self.num_exp}.csv', header=None, index=None)
             pd.DataFrame(self.result_prox_linear).to_csv(
                 dir + f'/prox_linear_n={self.n}_d={self.d}_lr={self.lr}_num_exp={self.num_exp}.csv', header=None,
                 index=None)
